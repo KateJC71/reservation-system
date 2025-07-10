@@ -453,6 +453,18 @@ const Reservation: React.FC = () => {
                 <input type="date" value={endDate} onChange={e => setEndDate(e.target.value)} className="input" min={startDate || new Date().toISOString().split('T')[0]} required />
               </div>
               <div className="mb-4">
+                <label className="block mb-1">預約人數</label>
+                <input
+                  type="number"
+                  min={1}
+                  max={10}
+                  value={people}
+                  onChange={e => handlePeopleChange(Number(e.target.value))}
+                  className="input w-24"
+                  required
+                />
+              </div>
+              <div className="mb-4">
                 <label className="block mb-1">租借地點</label>
                 <select className="input" value={rentStore} onChange={e => setRentStore(e.target.value)} required>
                   <option value="" disabled style={{ color: '#aaa' }}>請選擇租借地點</option>
